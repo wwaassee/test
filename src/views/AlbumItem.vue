@@ -10,6 +10,18 @@
         <div class="">{{ animal.name }}</div>
       </li>
     </ul>
+    <div class="dnd">
+      <h2>Drag and drop</h2>
+      <div class="animal-item-dnd"
+          v-for="animal in animals"
+          :key="animal.id"
+      >
+        <movable class="testmove" :posLeft="`${animal.id}00`" :grid="20">
+        <img :src="animal.photo" alt="#">
+        <div class="">{{ animal.name }}</div>
+        </movable>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -46,5 +58,23 @@ li {
 }
 li img {
   width: 100%;
+}
+
+.testmove {
+  display:block;
+  position: absolute;
+  height: 150px;
+  width: 150px;
+  color: white;
+}
+
+.dnd {
+  position: relative;
+  width: 1400px;
+  height: 1000px;
+}
+
+.animal-item-dnd img{
+  width: 200px;
 }
 </style>
